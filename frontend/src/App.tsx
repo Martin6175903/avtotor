@@ -1,6 +1,6 @@
 import { AppLayout } from '@components';
 import { AskPage } from '@modules/ask';
-import { LoginPage } from '@modules/auth';
+import { LoginPage, RequireAuth, SessionGate } from '@modules/auth';
 import { DocumentPage } from '@modules/documents';
 import { NotFoundPage } from '@pages';
 import { Route, Routes } from 'react-router-dom';
@@ -9,9 +9,15 @@ function App() {
   return (
     <Routes>
       <Route element={<AppLayout />}>
-        <Route index element={<AskPage />} />
-        <Route path="login" element={<LoginPage />} />
-        <Route path="documents/:documentId" element={<DocumentPage />} />
+        <Route element={<SessionGate />}>
+          <Route path="login" element={<LoginPage />} />
+
+          <Route element={<RequireAuth />}>
+            <Route index element={<AskPage />} />
+            <Route path="documents/:documentId" element={<DocumentPage />} />
+          </Route>
+        </Route>
+
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>

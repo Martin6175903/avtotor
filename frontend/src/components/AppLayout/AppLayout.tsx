@@ -1,6 +1,7 @@
-import { appLayoutNavigationItems } from '@components/AppLayout/AppLayout.constants';
+import { SessionControls } from '@modules/auth';
 import { NavLink, Outlet } from 'react-router-dom';
 
+import { appLayoutNavigationItems } from './AppLayout.constants';
 import styles from './AppLayout.module.scss';
 
 export const AppLayout = () => {
@@ -21,6 +22,7 @@ export const AppLayout = () => {
             ))}
           </ul>
         </nav>
+        <SessionControls />
       </header>
       <main className={styles.content}>
         <Outlet />

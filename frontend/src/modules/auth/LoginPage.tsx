@@ -1,18 +1,15 @@
-import { useNavigate } from 'react-router-dom';
+import { useAuth } from '@modules/auth/hooks';
+import { Navigate } from 'react-router-dom';
 
-import { login } from './api';
 import { LoginForm } from './components';
 import styles from './LoginPage.module.scss';
-import type { LoginFormValues } from './schemas';
 
 export const LoginPage = () => {
-  const navigate = useNavigate();
+  const { state, signIn } = useAuth();
 
-  const handleLogin = async (values: LoginFormValues): Promise<void> => {
-    await login(values);
-
-    navigate('/', { replace: true });
-  };
+  if (state.status === 'authenticated') {
+    return <Navigate to="/" replace />;
+  }
 
   return (
     <section className={styles.page} aria-labelledby="login-title">
@@ -25,7 +22,7 @@ export const LoginPage = () => {
       </div>
 
       <div className={styles.card}>
-        <LoginForm onSubmit={handleLogin} />
+        <LoginForm onSubmit={signIn} />
       </div>
     </section>
   );

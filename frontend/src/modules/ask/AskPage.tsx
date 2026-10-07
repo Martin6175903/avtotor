@@ -1,4 +1,6 @@
 import { Alert } from '@components';
+import { useAuth } from '@modules/auth/hooks';
+import { ApiError } from '@services';
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -8,6 +10,8 @@ import { QuestionForm } from './components';
 import type { QuestionFormValues } from './schemas';
 
 export const AskPage = () => {
+  const { expireSession } = useAuth();
+
   const [result, setResult] = useState<AskResponse | null>(null);
   const requestController = useRef<AbortController | null>(null);
 
@@ -25,10 +29,23 @@ export const AskPage = () => {
 
     setResult(null);
 
-    const response = await askQuestion(question, controller.signal);
+    try {
+      const response = await askQuestion(question, controller.signal);
 
-    if (!controller.signal.aborted) {
-      setResult(response);
+      if (!controller.signal.aborted) {
+        setResult(response);
+      }
+    } catch (error) {
+      if (controller.signal.aborted) {
+        return;
+      }
+
+      if (error instanceof ApiError && error.status === 401) {
+        expireSession();
+        return;
+      }
+
+      throw error;
     }
   };
 
