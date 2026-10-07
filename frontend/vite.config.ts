@@ -24,6 +24,7 @@ export default defineConfig({
       '@services': path.resolve(import.meta.dirname, 'src/services'),
       '@types': path.resolve(import.meta.dirname, 'src/types'),
       '@utils': path.resolve(import.meta.dirname, 'src/utils'),
+      '@pages': path.resolve(import.meta.dirname, 'src/pages'),
     },
   },
 });
