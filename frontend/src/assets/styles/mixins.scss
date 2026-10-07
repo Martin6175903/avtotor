@@ -1,0 +1,24 @@
+@mixin flex-center($gap: normal) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @if gap != normal {
+    gap: $gap;
+  }
+}
+
+@mixin hover-media-query {
+  @media (hover: hover) {
+    &:hover {
+      @content
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      @content;
+      transform: scale(0.98);
+    }
+  }
+}

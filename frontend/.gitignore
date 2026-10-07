@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Tests
+coverage/
+playwright-report/
+test-results/
+
+# TypeScript build cache
+*.tsbuildinfo

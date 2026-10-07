@@ -1,0 +1,15 @@
+@use 'reset-styles' as *;
+@use 'mixins' as *;
+@use 'variables' as *;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-page-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-weight: 300;
+}
