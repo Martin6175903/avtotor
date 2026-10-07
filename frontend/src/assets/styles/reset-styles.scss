@@ -13,6 +13,10 @@
 
 /* Links */
 
+a {
+  color: inherit;
+}
+
 a, a:link, a:visited  {
   text-decoration: none;
 }
@@ -89,10 +93,6 @@ legend {
 
 input[type='file'] {
   max-width: 100%;
-}
-
-a {
-  color: inherit;
 }
 
 :focus-visible {
