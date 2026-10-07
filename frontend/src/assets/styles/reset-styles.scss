@@ -1,7 +1,7 @@
 /* Reset and base styles  */
 * {
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   border: none;
 }
 
@@ -89,4 +89,18 @@ legend {
 
 input[type='file'] {
   max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+button:disabled,
+input[type='submit']:disabled {
+  cursor: not-allowed;
 }

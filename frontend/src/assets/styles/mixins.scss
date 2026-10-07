@@ -1,9 +1,9 @@
-@mixin flex-center($gap: normal) {
+@mixin flex-center($gap: null) {
   display: flex;
   justify-content: center;
   align-items: center;
 
-  @if gap != normal {
+  @if $gap != null {
     gap: $gap;
   }
 }
@@ -18,7 +18,6 @@
   @media (hover: none) {
     &:active {
       @content;
-      transform: scale(0.98);
     }
   }
 }

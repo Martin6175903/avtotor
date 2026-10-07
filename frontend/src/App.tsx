@@ -1,28 +1,20 @@
-import { CloseIcon } from '@assets/icons';
-import { useState } from 'react';
+import { AppLayout } from '@components';
+import { AskPage } from '@modules/ask';
+import { LoginPage } from '@modules/auth';
+import { DocumentPage } from '@modules/documents';
+import { NotFoundPage } from '@pages';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <section id="center">
-      <div>
-        <h1>Get started</h1>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-        </p>
-      </div>
-      <button type="button" className="counter" onClick={() => setCount((count) => count + 1)}>
-        Count is {count}
-      </button>
-      <div>
-        <h1>Секция с иконкой</h1>
-        <div>
-          <CloseIcon />
-        </div>
-        Hi, bro!
-      </div>
-    </section>
+    <Routes>
+      <Route element={<AppLayout />}>
+        <Route index element={<AskPage />} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="documents/:documentId" element={<DocumentPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
+    </Routes>
   );
 }
 
