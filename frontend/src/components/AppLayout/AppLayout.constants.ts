@@ -6,8 +6,4 @@ export const appLayoutNavigationItems: NavigationItem[] = [
     title: 'Задать вопрос',
     end: true,
   },
-  {
-    to: '/login',
-    title: 'Войти',
-  },
 ];
