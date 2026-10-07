@@ -1,9 +1,13 @@
 import { Button, Input } from '@components';
 
+import styles from './LoginPage.module.scss';
+
 export const LoginPage = () => {
   return (
-    <section>
-      <h1 id="login-title">Вход</h1>
+    <section className={styles.page}>
+      <h1 className={styles.heading} id="login-title">
+        Вход
+      </h1>
 
       <Input
         label="Логин"
