@@ -1,34 +1,22 @@
-import { Button, Input } from '@components';
+import { demoSubmission } from '@utils';
 
+import { LoginForm } from './components';
 import styles from './LoginPage.module.scss';
 
 export const LoginPage = () => {
   return (
-    <section className={styles.page}>
-      <h1 className={styles.heading} id="login-title">
-        Вход
-      </h1>
+    <section className={styles.page} aria-labelledby="login-title">
+      <div className={styles.heading}>
+        <h1 className={styles.title} id="login-title">
+          Вход в базу знаний
+        </h1>
 
-      <Input
-        label="Логин"
-        name="username"
-        autoComplete="username"
-        hint="Используйте тестовую учётную запись."
-      />
+        <p className={styles.description}>Используйте тестовую учётную запись.</p>
+      </div>
 
-      <Input
-        label="Пароль"
-        name="password"
-        type="password"
-        autoComplete="current-password"
-        error="Введите пароль."
-      />
-
-      <Button>Войти</Button>
-      <Button variant="secondary">Повторить</Button>
-      <Button isLoading loadingText="Входим…">
-        Войти
-      </Button>
+      <div className={styles.card}>
+        <LoginForm onSubmit={demoSubmission} />
+      </div>
     </section>
   );
 };
