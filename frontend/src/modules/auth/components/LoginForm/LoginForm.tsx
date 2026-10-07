@@ -1,5 +1,6 @@
 import { Alert, Button, Input } from '@components';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { ApiError } from '@services';
 import { useForm } from 'react-hook-form';
 
 import { type LoginFormValues, loginSchema } from '../../schemas';
@@ -28,10 +29,16 @@ export const LoginForm = ({ onSubmit }: LoginFormProps) => {
 
     try {
       await onSubmit(values);
-    } catch {
+    } catch (error) {
+      let message: string = 'Не удалось войти. Попробуйте ещё раз.';
+
+      if (error instanceof ApiError) {
+        message = error.status === 401 ? 'Неверный логин или пароль.' : error.message;
+      }
+
       setError('root.submit', {
         type: 'submit',
-        message: 'Не удалось войти. Попробуйте ещё раз.',
+        message,
       });
     }
   };

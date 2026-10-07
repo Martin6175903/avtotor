@@ -33,3 +33,49 @@
   font-size: 16px;
   line-height: 1.6;
 }
+
+.result {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+  padding: 24px;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  background-color: var(--color-surface);
+}
+
+.resultTitle {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.answer {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.sources {
+  display: grid;
+  gap: 12px;
+}
+
+.sourcesTitle {
+  font-weight: 600;
+}
+
+.sourceList {
+  display: grid;
+  gap: 8px;
+}
+
+.sourceLink {
+  color: var(--color-primary);
+  overflow-wrap: anywhere;
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
