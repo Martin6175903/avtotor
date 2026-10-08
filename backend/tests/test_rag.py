@@ -42,10 +42,7 @@ DOCUMENT_IDS = [
     "admin-1",
 ]
 
-ALL_TOPICS = (
-    "Компания отпуск техподдержка "
-    "подбор премирование резервирование"
-)
+ALL_TOPICS = "Автотор отпуск техподдержка подбор премирование резервирование"
 
 class RecordingModel(DeterministicMockModel):
     def __init__(self) -> None:
