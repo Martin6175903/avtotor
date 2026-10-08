@@ -1,0 +1,25 @@
+yarn run v1.22.22
+$ playwright test
+[WebServer] INFO:     Started server process [31688]
+[WebServer] INFO:     Waiting for application startup.
+[WebServer] INFO:     Application startup complete.
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+
+Running 8 tests using 1 worker
+
+  ok 1 [chromium] › e2e\rag.spec.ts:32:1 › сотрудник получает ответ и открывает источник (1.3s)
+  ok 2 [chromium] › e2e\rag.spec.ts:63:1 › закрытый источник недоступен сотруднику (807ms)
+  ok 3 [chromium] › e2e\rag.spec.ts:109:3 › hr открывает свой закрытый источник (610ms)
+  ok 4 [chromium] › e2e\rag.spec.ts:109:3 › admin открывает свой закрытый источник (609ms)
+  ok 5 [chromium] › e2e\rag.spec.ts:121:1 › при смене пользователя предыдущий ответ очищается (878ms)
+  ok 6 [chromium] › e2e\rag.spec.ts:140:1 › запрос без сессии отклоняется (335ms)
+  ok 7 [chromium] › e2e\rag.spec.ts:152:1 › переданная клиентом роль не расширяет доступ (462ms)
+  ok 8 [chromium] › e2e\rag.spec.ts:180:1 › ошибка сервиса отображается и позволяет повторить запрос (660ms)
+
+  8 passed (8.3s)
+
+To open last HTML report run:
+
+  yarn playwright show-report
+
+Done in 8.72s.
