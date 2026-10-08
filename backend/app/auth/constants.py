@@ -1,0 +1,2 @@
+SESSION_COOKIE_NAME = "rag_session"
+SESSION_TTL_SECONDS = 60 * 60
