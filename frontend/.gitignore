@@ -12,3 +12,7 @@ test-results/
 
 # TypeScript build cache
 *.tsbuildinfo
+
+# Playwright
+/playwright-report/
+/test-results/
