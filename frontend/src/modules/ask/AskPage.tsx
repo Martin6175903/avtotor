@@ -64,7 +64,7 @@ export const AskPage = () => {
       <div>{result ? 'Ответ получен.' : ''}</div>
 
       {result && (
-        <section className={styles.result}>
+        <section className={styles.result} data-testid="ask-result">
           <h2 className={styles.resultTitle}>Ответ</h2>
 
           <p className={styles.answer}>{result.answer}</p>

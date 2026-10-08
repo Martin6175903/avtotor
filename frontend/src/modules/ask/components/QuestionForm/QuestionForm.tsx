@@ -37,7 +37,7 @@ export const QuestionForm = ({ onSubmit }: QuestionFormProps) => {
     } catch {
       setError('root.submit', {
         type: 'submit',
-        message: 'Не удалось получить ответ. Попробуйте ещё раз.',
+        message: 'Сервис временно недоступен. Попробуйте позже.',
       });
     }
   };
